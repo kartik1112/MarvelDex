@@ -1,12 +1,8 @@
-import 'dart:async';
-// import 'dart:ui_web';
-
 import 'package:flutter/material.dart';
 import 'package:icon_swither/data/marvel_data.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:icon_swither/models/marvelmodel.dart';
+import 'package:icon_swither/widgets/marvel_text.dart';
 import 'package:icon_swither/widgets/power_level_indicator.dart';
-import 'package:svg_flutter/svg_flutter.dart';
+import 'package:string_extensions/string_extensions.dart';
 
 class SearchScreenWidget extends StatefulWidget {
   const SearchScreenWidget({super.key});
@@ -42,47 +38,43 @@ class _SearchScreenWidgetState extends State<SearchScreenWidget> {
   @override
   Widget build(BuildContext context) {
     WidgetsFlutterBinding.ensureInitialized;
-    // return Image.network("https://picsum.photos/250?image=9");
 
-    return ClipRRect(
-        child: Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: const [
-          BoxShadow(
-            color: Color.fromARGB(255, 240, 20, 30),
-            offset: Offset(0.0, 1.0), //(x,y)
-            blurRadius: 156.0,
-          )
-        ],
-      ),
-      child: Column(
-        children: [
-          Flexible(
-            flex: 2,
-            child: Container(),
-          ),
-          // Text("data"),
-          //logo
-          // SvgPicture.asset('lib/assets/marvel.svg'),
-          Image.network(
-            _imageUrl,
-            scale: 1,
-            height: 100,
-          ),
-          Text(_model.datamodel.name),
-          Column(
-            children: [
-              ...List.generate(_marvelPower.length, (index) => 
-              PowerLevelIndicator(_marvelPower[index],double.parse(_marvelPowerLevel[index]) / 100))
-            ],
-          )
-          // createImageCodecFromUrl(Uri(path: datamodel.image['url'].toString()))
-          // CachedNetworkImage(imageUrl: _model.datamodel.image['url'].toString(), placeholder: (context, url) => const CircularProgressIndicator(), errorWidget: (context, url, error) => const Icon(Icons.abc_outlined)),
-
-          // Image.network('https://picsum.photos/250?image=9')
-        ],
-      ),
-    ));
+    return Container(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: [
+            Flexible(
+              flex: 2,
+              child: Container(),
+            ),
+            Container(
+              child: CircleAvatar(
+                radius: 70,
+                backgroundImage: NetworkImage(
+                  _imageUrl,
+                  scale: 1,
+                ),
+              ),
+            ),
+            MarvelTextWidget(30, _model.datamodel.name.capitalize!),
+            const SizedBox(
+              height: 24,
+            ),
+            Column(
+              children: [
+                ...List.generate(
+                    _marvelPower.length,
+                    (index) => PowerLevelIndicator(_marvelPower[index],
+                        double.parse(_marvelPowerLevel[index]) / 100))
+              ],
+            ),
+            Flexible(
+              flex: 2,
+              child: Container(),
+            ),
+            
+          ],
+        ),
+      );
   }
 }

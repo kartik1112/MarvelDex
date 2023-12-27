@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:icon_swither/widgets/marvel_text.dart';
+import 'package:string_extensions/string_extensions.dart';
 
 class PowerLevelIndicator extends StatelessWidget {
   const PowerLevelIndicator(this.power, this.level, {super.key});
@@ -12,7 +14,8 @@ class PowerLevelIndicator extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(power),
+        MarvelTextWidget(10,power.capitalize!),
+        MarvelTextWidget(10, (level*100).toInt().toString()),
         Container(
             width: 200,
             height: 5,

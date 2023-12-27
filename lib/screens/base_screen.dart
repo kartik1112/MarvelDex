@@ -29,12 +29,12 @@ class _BaseScreenWidgetState extends State<BaseScreenWidget> {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           useMaterial3: true,
-          scaffoldBackgroundColor: const Color.fromARGB(0, 255, 255, 255)),
+          scaffoldBackgroundColor: Color.fromARGB(255, 0, 0, 0)),
       home: SafeArea(
         child: Scaffold(
           extendBodyBehindAppBar: true,
           appBar: AppBar(
-            backgroundColor: const Color.fromARGB(0, 240, 20, 30),
+            backgroundColor: Color.fromARGB(255, 0, 0, 0),
             centerTitle: true,
             title: const Text(
               "Marvel  Dex",
