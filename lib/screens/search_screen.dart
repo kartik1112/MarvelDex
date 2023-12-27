@@ -13,10 +13,11 @@ class SearchScreenWidget extends StatefulWidget {
 
 class _SearchScreenWidgetState extends State<SearchScreenWidget> {
   final MarvelData _model = MarvelData();
+  final index1 = 0;
   final List<String> _marvelPower =
-      MarvelData().datamodel.powerStats.keys.toList();
+      MarvelData().datamodel[3].powerStats.keys.toList();
   final List<String> _marvelPowerLevel =
-      MarvelData().datamodel.powerStats.values.toList();
+      MarvelData().datamodel[3].powerStats.values.toList();
 
   bool _isLoading = true;
   String _imageUrl = "";
@@ -28,7 +29,7 @@ class _SearchScreenWidgetState extends State<SearchScreenWidget> {
   }
 
   _loadImage() async {
-    var urlImage = await _model.datamodel.image['url'].toString();
+    var urlImage = await _model.datamodel[3].image['url'].toString();
     setState(() {
       _imageUrl = urlImage;
       _isLoading = false;
@@ -41,22 +42,38 @@ class _SearchScreenWidgetState extends State<SearchScreenWidget> {
 
     return Container(
         padding: const EdgeInsets.all(20),
+        margin: EdgeInsets.symmetric(horizontal: 15, vertical: 150),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          // boxShadow: ,
+          color: Colors.grey.shade200.withOpacity(0.5),
+          shape: BoxShape.rectangle),
         child: Column(
           children: [
             Flexible(
-              flex: 2,
+              flex: 1,
               child: Container(),
             ),
             Container(
-              child: CircleAvatar(
-                radius: 70,
-                backgroundImage: NetworkImage(
-                  _imageUrl,
-                  scale: 1,
-                ),
+              // width: double.infinity,
+              // alignment: Alignment.bottomCenter,
+              // decoration: BoxDecoration(color: Colors.white),
+              child: Row(
+                // mainAxisAlignment: ,
+                children: [
+                  CircleAvatar(
+                    radius: 70,
+                    backgroundImage: NetworkImage(
+                      _imageUrl,
+                      scale: 1,
+                    ),
+                  ),
+                  SizedBox(width: 24,),
+                  MarvelTextWidget(30, _model.datamodel[3].name.capitalize!),
+
+                ],
               ),
             ),
-            MarvelTextWidget(30, _model.datamodel.name.capitalize!),
             const SizedBox(
               height: 24,
             ),

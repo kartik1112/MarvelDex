@@ -19,9 +19,8 @@ class _BaseScreenWidgetState extends State<BaseScreenWidget> {
 
   @override
   Widget build(BuildContext context) {
-    
     Widget screenWidget = HomeScreen(switchScreen);
-    
+
     // if (activeScreen=="Search-Screen"){
     //   screenWidget = const SearchScreenWidget();
     // }
@@ -29,24 +28,28 @@ class _BaseScreenWidgetState extends State<BaseScreenWidget> {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           useMaterial3: true,
-          scaffoldBackgroundColor: Color.fromARGB(255, 0, 0, 0)),
+          scaffoldBackgroundColor: Color.fromARGB(0, 0, 0, 0)),
       home: SafeArea(
-        child: Scaffold(
-          extendBodyBehindAppBar: true,
-          appBar: AppBar(
-            backgroundColor: Color.fromARGB(255, 0, 0, 0),
-            centerTitle: true,
-            title: const Text(
-              "Marvel  Dex",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+        child: Stack(children: [
+          Image.asset("lib/assets/bg_ironman.jpg",
+              height: double.maxFinite, width: double.maxFinite),
+          Scaffold(
+            extendBodyBehindAppBar: true,
+            appBar: AppBar(
+              backgroundColor: Color.fromARGB(0, 0, 0, 0),
+              centerTitle: true,
+              title: const Text(
+                "Marvel  Dex",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
               ),
             ),
+            // body: (activeScreen == 'Home-Screen')?HomeScreen(switchScreen):const SearchScreenWidget()
+            body: HomeScreen(switchScreen),
           ),
-          // body: (activeScreen == 'Home-Screen')?HomeScreen(switchScreen):const SearchScreenWidget()
-          body: SearchScreenWidget(),
-        ),
+        ]),
       ),
     );
   }
