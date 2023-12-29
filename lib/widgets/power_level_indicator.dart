@@ -14,8 +14,8 @@ class PowerLevelIndicator extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        MarvelTextWidget(10,power.capitalize!),
-        MarvelTextWidget(10, (level*100).toInt().toString()),
+        Material(color: Colors.transparent,child: MarvelTextWidget(10,power.capitalize!)),
+        Material(color: Colors.transparent,child: MarvelTextWidget(10, (level*100).toInt().toString())),
         Container(
             width: 200,
             height: 5,

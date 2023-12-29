@@ -69,6 +69,11 @@ flutter:
   assets:
     - lib/assets/marvel.svg
     - lib/assets/bg_ironman.jpg
+    - lib/assets/supes/falcon.jpg
+    - lib/assets/supes/ironfist.jpg
+    - lib/assets/supes/ironman.jpg
+    - lib/assets/supes/spiderman.jpg
+    - lib/assets/supes/thor.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -29,8 +29,7 @@ class _BaseScreenWidgetState extends State<BaseScreenWidget> {
       theme: ThemeData(
           useMaterial3: true,
           scaffoldBackgroundColor: Color.fromARGB(0, 0, 0, 0)),
-      home: SafeArea(
-        child: Stack(children: [
+      home: Stack(children: [
           Image.asset("lib/assets/bg_ironman.jpg",
               height: double.maxFinite, width: double.maxFinite),
           Scaffold(
@@ -50,7 +49,7 @@ class _BaseScreenWidgetState extends State<BaseScreenWidget> {
             body: HomeScreen(switchScreen),
           ),
         ]),
-      ),
+      
     );
   }
 }

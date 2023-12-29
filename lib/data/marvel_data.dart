@@ -20,7 +20,7 @@ class MarvelData {
       "power": "95",
       "combat": "100"
     }, {
-      "url": "//www.superherodb.com/pictures2/portraits/10/100/1120.jpg"
+      "url": "https://www.superherodb.com/pictures2/portraits/10/100/1120.jpg"
     }),
     MarvelModel("Iron Man", {
       "intelligence": "100",
@@ -30,7 +30,7 @@ class MarvelData {
       "power": "100",
       "combat": "64"
     }, {
-      "url": "https://www.superherodb.com/pictures2/portraits/10/100/85.jpg"
+      "url": "https://www.superherodb.com/pictures2/portraits/10/100/1120.jpg"
     }),
     MarvelModel("Thor", {
       "intelligence": "69",

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class MarvelButton extends StatelessWidget {
   const MarvelButton(this.changeScreen, {super.key});
+  
   final void Function() changeScreen;
+  // final String name;
 
   @override
   Widget build(BuildContext context) {
